@@ -23,7 +23,7 @@ class Model:
         self.game_over = False
         self.cheater = False
         self.stopwatch.reset() #Nullib stopperi
-        self.stopwatch.start() #Käivitab stopperi
+        # self.stopwatch.start() #Käivitab stopperi
 
     def ask(self):
         """Küsib numbrit ja kontrollib"""
@@ -46,6 +46,7 @@ class Model:
 
     def lets_play(self):
         """Mängime mängu avalik meetod"""
+        self.stopwatch.start()
         while not self.game_over:
             self.ask()
         #Näita mängu aega
