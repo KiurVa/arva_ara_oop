@@ -1,4 +1,6 @@
+import datetime
 from random import randint
+from time import strftime, gmtime
 
 from models.Database import Database
 from models.Stopwatch import Stopwatch
@@ -60,7 +62,8 @@ class Model:
         db = Database() #Loome andmebaasi objekti
         db.add_record(name, self.steps, self.pc_nr, self.cheater, self.stopwatch.seconds)
 
-    def ask_name(self):
+    @staticmethod
+    def ask_name():
         """Küsib nime ja tagastab korrektse nime"""
         name = input('Kuidas on mängija nimi: ')
         if not name.strip():
@@ -78,7 +81,8 @@ class Model:
                 self.reset_game()
                 self.lets_play()
             elif user_input == 2:
-                self.show_leaderboard()
+                #self.show_leaderboard()
+                self.show_no_cheater()
                 self.show_menu()
             elif user_input == 3:
                 print('Bye, Bye!!!')
@@ -86,11 +90,42 @@ class Model:
         else:
             self.show_menu()
 
+    @staticmethod
+    def format_time(seconds):
+        """Aja muutmine inimlikuks"""
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        seconds = seconds % 60
+        #return "%02d:%02d:%02d" % (hours, minutes, seconds) #Tagastab aja
+        return f'{hours:02}:{minutes:02}:{seconds:02}' #Teine variant
+
     def show_leaderboard(self):
         """Näita edetabelit"""
         db = Database()
-        data = db.read_records()
+        data = db.no_cheater()
+        print('{:<19}{:<10}{:<10}'.format('Nimi', 'Number', 'Sammud',) + 'Mängu aeg') #prindib edetabeli päise
         if data:
             for record in data:
-                print(record) #Näitab terve listi
+                name = record[0][:15] #Näitame asukohta ja teeme et max 15
+                quess = record[1]
+                steps = record[2]
+                #length = record[3]
+                #hrs = strftime('%H:%M:%S', gmtime(length)) #Teeb nii, et kaks 00 tunni omas
+                #hrs = datetime.timedelta(seconds=length) #Muudab sekundid t.m.s
+                print('{:<19}{:<10}{:<9}'.format(name, quess, steps,), self.format_time(record[3])) #Tühikutega mängimine muudab
+                #print(self.format_time(record[3]))
                 #print(record[1]) #Näitab ainult nimesid
+
+    def show_no_cheater(self):
+        """Edetabel ausatele mängijatele"""
+        db = Database()
+        data = db.no_cheater()
+        if data:
+            #Vormindus funktsiooni veerule
+            formatter = {
+                'Mängu aeg': self.format_time,
+            }
+            print() #Tühirida enne tabelit
+            #self.print_table(data, formatters)
+            self.show_leaderboard()
+            print() #Tühirida peale tabelit

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b0ebe43-f1bf-45f7-9f1c-4d79cf890408" name="Changes" comment="Model done">
+    <list default="true" id="0b0ebe43-f1bf-45f7-9f1c-4d79cf890408" name="Changes" comment="DONE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game_leaderboard_v2.db" beforeDir="false" afterPath="$PROJECT_DIR$/game_leaderboard_v2.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/Model.py" afterDir="false" />
@@ -55,7 +54,7 @@
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kasutaja/Documents/PyApps/arva_ara_oop/app.py&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kasutaja/Documents/PyApps/esimene&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737013874879</updated>
-      <workItem from="1737013875941" duration="14455000" />
+      <workItem from="1737013875941" duration="23375000" />
     </task>
     <task id="LOCAL-00001" summary="1.">
       <option name="closed" value="true" />
@@ -146,7 +145,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737027608406</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="DONE">
+      <option name="closed" value="true" />
+      <created>1737031775559</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737031775559</updated>
+    </task>
+    <task id="LOCAL-00006" summary="DONE">
+      <option name="closed" value="true" />
+      <created>1737032433074</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737032433074</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,9 +182,10 @@
     <MESSAGE value="1." />
     <MESSAGE value="Stopwatch ja database done" />
     <MESSAGE value="Model done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Model done" />
+    <MESSAGE value="DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="DONE" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/arva_ara_oop$app.coverage" NAME="app Coverage Results" MODIFIED="1737029974900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/arva_ara_oop$app.coverage" NAME="app Coverage Results" MODIFIED="1737038679195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
