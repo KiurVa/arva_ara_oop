@@ -49,3 +49,18 @@ class Database:
                 self.close_connection()
         else:
             print('Ühendus andmebaasiga puudub. Palun loo ühendus andmebaasiga.')
+
+    def add_record(self, name, steps, pc_nr, cheater, seconds):
+        """Lisab mängija andmetabelisse"""
+        if self.cursor:
+            try:
+                sql = f'INSERT INTO {self.table} (name, steps, quess, cheater, game_length) VALUES (?, ?, ?, ?, ?);'
+                self.cursor.execute(sql, (name, steps, pc_nr, cheater, seconds)) #Üritab lisada andmeid. Aga ei tea kas õnnestub
+                self.conn.commit() #See lisab realselt tabelisse(save)
+                print('Mängija on lisatud tabelisse.')
+            except sqlite3.Error as error:
+                print(f'Mängija lisamisel tekkis tõrge: {error}')
+            finally:
+                self.close_connection() #See tuleb ühenduse. Alati
+        else:
+            print('Ühendus puudub! Palun loo ühendus andmebaasiga.')
