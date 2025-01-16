@@ -33,3 +33,19 @@ class Database:
                 print(f'Ühendus andmebaasiga {self.db_name} suletud.')
         except sqlite3.Error as error:
             print(f'Tõrge ühenduse sulgemisel: {error}')
+
+    def read_records(self):
+        """Andmebaasi info lugemiseks"""
+        if self.cursor:
+            try:
+                sql = f'SELECT * FROM {self.table};'
+                self.cursor.execute(sql) #Päringu käivitamiseks
+                data = self.cursor.fetchall() #Kõik kirjed muutujasse data
+                return data #Meetod tagastab meile kogu info
+            except sqlite3.Error as error:
+                print(f'Kirjete lugemisel ilmnes tõrge: {error}')
+                return [] #Tagastab tühja listi
+            finally:
+                self.close_connection()
+        else:
+            print('Ühendus andmebaasiga puudub. Palun loo ühendus andmebaasiga.')

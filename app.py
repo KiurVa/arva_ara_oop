@@ -3,4 +3,7 @@ from models.Stopwatch import Stopwatch
 
 if __name__ == '__main__':
     db = Database()
-    db.close_connection()
+    data = db.read_records()
+    if data:
+        for record in data:
+            print(record)
