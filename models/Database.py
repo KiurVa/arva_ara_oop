@@ -68,7 +68,8 @@ class Database:
     def no_cheater(self):
         if self.cursor:
             try:
-                sql = f'SELECT name, quess, steps, game_length FROM {self.table} WHERE cheater=?;'
+                sql = (f'SELECT name, quess, steps, game_length FROM {self.table} WHERE cheater=?'
+                       f'ORDER BY steps, game_length, name DESC LIMIT 10;')
                 self.cursor.execute(sql, (0,)) #Päringu käivitamiseks
                 data = self.cursor.fetchall() #Kõik kirjed muutujasse data
                 return data #Meetod tagastab meile kogu info
@@ -80,3 +81,5 @@ class Database:
         else:
             print('Ühendus andmebaasiga puudub. Palun loo ühendus andmebaasiga.')
 
+    def for_export(self):
+        pass
