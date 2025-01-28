@@ -82,4 +82,20 @@ class Database:
             print('Ühendus andmebaasiga puudub. Palun loo ühendus andmebaasiga.')
 
     def for_export(self):
-        pass
+        if self.cursor:
+            try:
+                sql = (f'SELECT * FROM {self.table} ORDER BY steps, game_length, name;')
+                self.cursor.execute(sql) #Päringu käivitamiseks
+                data_e = self.cursor.fetchall() #Kõik kirjed muutujasse data
+                if not data_e:
+                    print(f'Tabelis pole andmeid!')
+                    return []
+                return data_e #Meetod tagastab meile kogu info
+            except sqlite3.Error as error:
+                print(f'Kirjete lugemisel ilmnes tõrge: {error}')
+                return [] #Tagastab tühja listi
+            finally:
+                self.close_connection()
+        else:
+            print('Ühendus andmebaasiga puudub. Palun loo ühendus andmebaasiga.')
+

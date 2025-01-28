@@ -3,6 +3,7 @@ from random import randint
 from time import strftime, gmtime
 
 from models.Database import Database
+from models.ExportToFile import ExportToFile
 from models.Stopwatch import Stopwatch
 
 
@@ -129,3 +130,6 @@ class Model:
             #self.print_table(data, formatters)
             self.show_leaderboard()
             print() #Tühirida peale tabelit
+
+            etf = ExportToFile(self)
+            etf.export()
