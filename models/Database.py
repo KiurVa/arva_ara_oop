@@ -61,7 +61,7 @@ class Database:
             except sqlite3.Error as error:
                 print(f'Mängija lisamisel tekkis tõrge: {error}')
             finally:
-                self.close_connection() #See tuleb ühenduse. Alati
+                self.close_connection() #See suleb ühenduse. Alati
         else:
             print('Ühendus puudub! Palun loo ühendus andmebaasiga.')
 
@@ -72,6 +72,8 @@ class Database:
                        f'ORDER BY steps, game_length, name DESC LIMIT 10;')
                 self.cursor.execute(sql, (0,)) #Päringu käivitamiseks
                 data = self.cursor.fetchall() #Kõik kirjed muutujasse data
+                if not data:
+                    print(f'Ausaid mängijaid ei ole tabelis.')
                 return data #Meetod tagastab meile kogu info
             except sqlite3.Error as error:
                 print(f'Kirjete lugemisel ilmnes tõrge: {error}')
@@ -86,10 +88,7 @@ class Database:
             try:
                 sql = (f'SELECT * FROM {self.table} ORDER BY steps, game_length, name;')
                 self.cursor.execute(sql) #Päringu käivitamiseks
-                data_e = self.cursor.fetchall() #Kõik kirjed muutujasse data
-                if not data_e:
-                    print(f'Tabelis pole andmeid!')
-                    return []
+                data_e = self.cursor.fetchall() #Kõik kirjed muutujasse data_e
                 return data_e #Meetod tagastab meile kogu info
             except sqlite3.Error as error:
                 print(f'Kirjete lugemisel ilmnes tõrge: {error}')

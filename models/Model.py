@@ -131,5 +131,6 @@ class Model:
             self.show_leaderboard()
             print() #Tühirida peale tabelit
 
-            etf = ExportToFile(self)
-            etf.export()
+        etf = ExportToFile(self)
+        etf.export() #Txt faili salvestamine
+
